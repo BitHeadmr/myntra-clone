@@ -7,10 +7,14 @@ const productrouter = require("./routes/Productroutes");
 const Bagroutes = require("./routes/Bagroutes");
 const Wishlistroutes = require("./routes/Wishlistroutes");
 const OrderRoutes = require("./routes/OrderRoutes");
+const cors = require('cors');
 dotenv.config();
 const app = express();
 app.use(express.json());
-
+app.use(cors({
+  origin: '*', 
+  credentials: true, 
+}));
 app.get("/", (req, res) => {
   res.send("✅ Myntra backend in working");
 });
